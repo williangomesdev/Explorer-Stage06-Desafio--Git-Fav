@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --hue: 240;
+  --black: hsla(0, 0%, 0%, 1);
+  --fc-white: hsla(var(--hue), 9%, 89%, 1);
+}
+
+body {
+  background: var(--black);
+  color: var(--fc-white);
+}
