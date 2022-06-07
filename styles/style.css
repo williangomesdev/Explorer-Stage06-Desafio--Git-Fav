@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 :root {
@@ -15,11 +16,12 @@
   --fc-user-empty: hsla(calc(var(--hue) - 51), 4%, 32%, 1);
   --bg-input: hsla(calc(var(--hue) - 49), 65%, 7%, 1);
   --bg-button: hsla(calc(var(--hue) - 45), 91%, 25%, 1);
-  --bg-table-head: hsla(calc(var(--hue) - 46), 72%, 13%, 1);
+  --bg-table-head: hsla(calc(var(--hue) - 45), 89%, 14%, 1);
   --bg-user-odd: hsla(calc(var(--hue) - 45), 61%, 6%, 0.5);
-  --bg-user-pair: hsla(calc(var(--hue) - 48), 65%, 7%, 1);
+  --bg-user-even: hsla(calc(var(--hue) - 48), 65%, 7%, 1);
   --bg-user-empty: hsla(calc(var(--hue) - 48), 63%, 3%, 1);
   --br-input-focus: 2px solid hsla(calc(var(--hue) - 49), 31%, 42%, 1);
+  --br-table: 1px solid hsla(calc(var(--hue) - 49), 31%, 42%, 1);
 }
 
 body {
@@ -44,6 +46,7 @@ body {
 
 button {
   background: var(--bg-button);
+  cursor: pointer;
 }
 
 #app {
@@ -78,7 +81,7 @@ header .search input {
   line-height: 100%;
 }
 
-header .search input:focus{
+header .search input:focus {
   border: var(--br-input-focus);
 }
 
@@ -104,4 +107,87 @@ header .search button:hover {
 
 header .search button:hover svg path {
   fill: var(--bg-button);
+}
+
+.tableBox {
+  overflow: hidden;
+  border: var(--br-table);
+  border-radius: 1.2rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table * {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 160%;
+  color: var(--fc-white);
+}
+
+table thead {
+  text-align: left;
+}
+
+table thead th {
+  background: var(--bg-table-head);
+  padding-block: 1.6rem;
+  padding-right: 2.4rem;
+  padding-left: 4rem;
+}
+
+table thead th:first-child {
+  border-top-left-radius: 1.2rem;
+}
+
+table thead th:last-child {
+  border-top-right-radius: 1.2rem;
+}
+
+table tbody tr td {
+  padding-block: 2.4rem;
+  padding-left: 4rem;
+}
+
+table tbody tr td.users {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+}
+
+table tbody tr td.users span {
+  font-weight: 400;
+}
+
+td.users img {
+  width: 5.6rem;
+  height: 5.6rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+td.action button {
+  background: none;
+  border: none;
+  color: var(--fc-red);
+}
+
+table tbody tr:nth-child(odd) {
+  background: var(--bg-user-odd);
+}
+
+table tbody tr:nth-child(even) {
+  border-top: var(--br-table);
+  background: var(--bg-user-even);
+}
+
+table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 1.2rem;
+}
+
+table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 1.2rem;
 }
