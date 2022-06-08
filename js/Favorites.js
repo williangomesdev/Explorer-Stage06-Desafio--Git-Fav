@@ -9,20 +9,9 @@ export class Favorites {
   }
 
   load() {
-    this.entries = [
-      {
-        login: "williangomesdev",
-        name: "Willian Amaro Gomes ",
-        public_repos: "100",
-        followers: "1000",
-      },
-      {
-        login: "maykbrito",
-        name: "Mayk Brito",
-        public_repos: "100",
-        followers: "1000",
-      },
-    ];
+    /*JSON.parse = modificar um JSON para um string em um objeto*/
+    this.entries = JSON.parse(localStorage.getItem("@github-favorites:")) || [];
+    console.log(this.entries);
   }
 
   delete(user) {
