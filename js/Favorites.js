@@ -4,6 +4,24 @@
 export class Favorites {
   constructor(root) {
     this.root = document.querySelector(root);
+    this.load();
+  }
+
+  load() {
+    this.entries = [
+      {
+        login: "williangomesdev",
+        name: "Willian Amaro Gomes ",
+        public_repos: "100",
+        followers: "1000",
+      },
+      {
+        login: "maykbrito",
+        name: "Mayk Brito",
+        public_repos: "100",
+        followers: "1000",
+      },
+    ];
   }
 }
 
@@ -16,6 +34,14 @@ export class FavoritesView extends Favorites {
 
   update() {
     this.removeAllTr();
+
+    this.entries.forEach((user) => {
+      const row = this.createRow();
+      row.querySelector(
+        ".users img"
+      ).src = `https://github.com/${user.login}.png`;
+      console.log(row);
+    });
   }
 
   createRow() {
