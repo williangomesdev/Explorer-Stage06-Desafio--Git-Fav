@@ -24,6 +24,14 @@ export class Favorites {
       },
     ];
   }
+
+  delete(user) {
+    const filteredEntries = this.entries.filter(
+      (entry) => entry.login !== user.login
+    );
+    this.entries = filteredEntries;
+    this.update();
+  }
 }
 
 //Classe que vai criar a visualização e eventos do HTML
@@ -38,12 +46,20 @@ export class FavoritesView extends Favorites {
 
     this.entries.forEach((user) => {
       const row = this.createRow();
-      row.querySelector(".users img").src = `https://github.com/${user.login}.png`;
+      row.querySelector(
+        ".users img"
+      ).src = `https://github.com/${user.login}.png`;
       row.querySelector(".users img").alt = `Imagem de ${user.name}`;
       row.querySelector(".users p").textContent = user.name;
       row.querySelector(".users span").textContent = user.login;
       row.querySelector(".repositories").textContent = user.public_repos;
       row.querySelector(".followers").textContent = user.followers;
+      row.querySelector(".action").onclick = () => {
+        const isOk = confirm("Tem certeza que deseja deletar esse usuário?");
+        if (isOk) {
+          this.delete(user);
+        }
+      };
 
       /*receber um elemento HTML criado na DOM*/ this.tbody.append(row);
     });

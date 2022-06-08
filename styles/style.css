@@ -173,6 +173,11 @@ td.action button {
   background: none;
   border: none;
   color: var(--fc-red);
+  cursor: pointer;
+}
+
+td.action button:hover{
+  text-decoration: underline;
 }
 
 table tbody tr:nth-child(odd) {
