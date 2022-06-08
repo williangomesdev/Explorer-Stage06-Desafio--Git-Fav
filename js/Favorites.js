@@ -19,7 +19,8 @@ export class FavoritesView extends Favorites {
   }
 
   createRow() {
-    const content = `
+    /*Criar conteúdo HTML na DOM*/ const tr = document.createElement("tr");
+    /*Adicionando conteúdo HTML em uma variável*/ const content = `
     
         <td class="users">
             <img src="https://github.com/williangomesdev.png" alt="imagem github profile"/>
@@ -33,6 +34,8 @@ export class FavoritesView extends Favorites {
         <td class="action"><button>Remover</button></td>
     
     `;
+    /*Colocando conteúdo dentro do documento*/ tr.innerHTML = content;
+    return tr;
   }
 
   removeAllTr() {
