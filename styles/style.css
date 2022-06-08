@@ -176,7 +176,7 @@ td.action button {
   cursor: pointer;
 }
 
-td.action button:hover{
+td.action button:hover {
   text-decoration: underline;
 }
 
@@ -195,4 +195,21 @@ table tbody tr:last-child td:first-child {
 
 table tbody tr:last-child td:last-child {
   border-bottom-right-radius: 1.2rem;
+}
+
+.empty {
+  height: 100%;
+}
+
+.emptyBox {
+  background-color: var(--bg-user-empty);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--fc-user-empty);
+  padding-top: 21rem;
+  padding-bottom: 29.8rem;
 }
