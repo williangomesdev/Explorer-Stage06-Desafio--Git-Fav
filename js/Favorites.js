@@ -31,6 +31,11 @@ export class Favorites {
     console.log(this.entries);
   }
 
+  /*buscar nome do usuário digitado no input*/
+  async add(username) {
+    const user = await GithubUser.search(username);
+  }
+
   delete(user) {
     const filteredEntries = this.entries.filter(
       (entry) => entry.login !== user.login
@@ -45,6 +50,15 @@ export class FavoritesView extends Favorites {
   constructor(root) {
     super(root);
     this.update();
+    this.onAdd();
+  }
+
+  /*Botão favoritos*/ onAdd() {
+    const favButton = document.querySelector(".search button");
+    favButton.onclick = () => {
+      const { value } = this.root.querySelector(".search input");
+      this.add(value);
+    };
   }
 
   update() {
