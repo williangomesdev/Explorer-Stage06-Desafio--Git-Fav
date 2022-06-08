@@ -197,9 +197,6 @@ table tbody tr:last-child td:last-child {
   border-bottom-right-radius: 1.2rem;
 }
 
-.empty {
-  height: 100%;
-}
 
 .emptyBox {
   background-color: var(--bg-user-empty);
