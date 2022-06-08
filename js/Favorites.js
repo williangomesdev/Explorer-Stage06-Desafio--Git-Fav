@@ -4,6 +4,7 @@
 export class Favorites {
   constructor(root) {
     this.root = document.querySelector(root);
+    this.tbody = this.root.querySelector("table tbody");
     this.load();
   }
 
@@ -37,10 +38,14 @@ export class FavoritesView extends Favorites {
 
     this.entries.forEach((user) => {
       const row = this.createRow();
-      row.querySelector(
-        ".users img"
-      ).src = `https://github.com/${user.login}.png`;
-      console.log(row);
+      row.querySelector(".users img").src = `https://github.com/${user.login}.png`;
+      row.querySelector(".users img").alt = `Imagem de ${user.name}`;
+      row.querySelector(".users p").textContent = user.name;
+      row.querySelector(".users span").textContent = user.login;
+      row.querySelector(".repositories").textContent = user.public_repos;
+      row.querySelector(".followers").textContent = user.followers;
+
+      /*receber um elemento HTML criado na DOM*/ this.tbody.append(row);
     });
   }
 
@@ -65,8 +70,7 @@ export class FavoritesView extends Favorites {
   }
 
   removeAllTr() {
-    const tbody = this.root.querySelector("table tbody");
-    tbody.querySelectorAll("tr").forEach((tr) => {
+    this.tbody.querySelectorAll("tr").forEach((tr) => {
       tr.remove();
     });
   }
