@@ -112,67 +112,23 @@ header .search button:hover svg path {
 
 div.tableBox {
   width: 100%;
-  border: 1px solid #4a808c;
-  border-radius: 1.2rem;
-  min-width: 85rem;
-  margin-top: 8.7rem;
-  overflow-y: hidden;
-}
-
-.tableContent {
-  display: flex;
-  flex-direction: column;
-  overflow-y: overlay;
-  max-height: 59rem;
-}
-
-.tableContent::-webkit-scrollbar {
-  width: 1.2em;
-}
-
-.tableContent::-webkit-scrollbar-button {
-  height: 11.2rem;
-}
-
-.tableContent::-webkit-scrollbar-thumb {
-  border-inline: 0.8rem solid transparent;
-  border-radius: 1rem !important;
-  background-clip: padding-box;
-  background-color: var(--bg-table);
-}
-
-
-/* div.tableBox {
-  overflow-y: overlay;
   border: var(--br-table);
   border-radius: 1.2rem;
   min-width: 85rem;
+  overflow-y: hidden;
 }
 
-.tableBox {
-  overflow-y: hidden;
+table tbody.tableContent {
   display: flex;
   flex-direction: column;
-  max-height: 37.6rem;
-}
-
-.tableBox::-webkit-scrollbar {
-  width: 1.6em;
-}
-
-.tableBox::-webkit-scrollbar-button {
-  height:1rem;
-}
-
-.tableBox::-webkit-scrollbar-thumb {
-  border-inline: 0.8rem solid transparent;
-  border-radius: 1rem !important;
-  background-clip: padding-box;
-  background-color: var(--bg-table);
+  max-height: 59rem;
+  overflow-y: overlay;
 }
 
 table {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
   border-collapse: collapse;
 }
 
@@ -183,85 +139,73 @@ table * {
   color: var(--fc-white);
 }
 
-table thead {
-  position: sticky;
-  left: 0;
-  top: 0;
+table tbody tr {
+  height: 10.4rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
   text-align: left;
+  background: var(--bg-user-odd);
 }
 
-table thead th {
-  background: var(--bg-table-head);
-  padding-block: 1.6rem;
-  padding-right: 2.4rem;
-  padding-left: 4rem;
+table tbody.tableContent tr:nth-child(even) {
+  border-top: var(--br-table);
+  border-bottom: var(--br-table);
+  background: var(--bg-user-even);
 }
 
-table thead th:first-child {
-  border-top-left-radius: 1.2rem;
+table tbody.tableContent::-webkit-scrollbar {
+  width: 1.2em;
 }
 
-table thead th:last-child {
-  border-top-right-radius: 1.2rem;
+table tbody.tableContent::-webkit-scrollbar-button {
+  height: 1rem;
 }
 
-table tbody tr td {
-  padding-block: 2.4rem;
-  padding-left: 4rem;
+table tbody.tableContent::-webkit-scrollbar-thumb {
+  border-inline: 0.8rem solid transparent;
+  border-radius: 1rem ;
+  background-clip: padding-box;
+  background-color: var(--bg-table);
 }
 
-table tbody tr td.users {
+table tbody td {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 3rem;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 4rem;
 }
 
-table tbody tr td.users span {
-  font-weight: 400;
+table tbody tr td.user {
+  height: 10.4rem;
+  min-width: 29rem;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 1.6rem;
 }
 
-td.users img {
-  width: 5.6rem;
+table tbody.tableContent td.user img {
   height: 5.6rem;
   object-fit: cover;
   border-radius: 50%;
 }
 
-td.action button {
+table tbody.tableContent td.user span {
+  font-weight: 400;
+}
+
+table tbody.tableContent td.action button {
   background: none;
   border: none;
   color: var(--fc-red);
   cursor: pointer;
 }
 
-td.action button:hover {
+table tbody.tableContent td.action button:hover {
   text-decoration: underline;
-}
-
-table tbody tr:nth-child(odd) {
-  background: var(--bg-user-odd);
-}
-
-table tbody tr:nth-child(even) {
-  border-top: var(--br-table);
-  border-bottom: var(--br-table);
-  background: var(--bg-user-even);
-}
-
-table tbody tr:last-child td:first-child {
-  border-bottom-left-radius: 1.2rem;
-}
-
-table tbody tr:last-child td:last-child {
-  border-bottom-right-radius: 1.2rem;
-}
- */
-
- td.users img {
-  height: 5.6rem;
-  object-fit: cover;
-  border-radius: 50%;
 }
 
 .emptyBox {

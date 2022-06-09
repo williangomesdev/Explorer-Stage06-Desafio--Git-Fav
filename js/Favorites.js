@@ -81,12 +81,12 @@ export class FavoritesView extends Favorites {
     this.entries.forEach((user) => {
       const row = this.createRow();
       row.querySelector(
-        ".users img"
+        ".user img"
       ).src = `https://github.com/${user.login}.png`;
-      row.querySelector(".users img").alt = `Imagem de ${user.name}`;
-      row.querySelector(".users a").href = `https://github.com/${user.login}`;
-      row.querySelector(".users p").textContent = user.name;
-      row.querySelector(".users span").textContent = user.login;
+      row.querySelector(".user img").alt = `Imagem de ${user.name}`;
+      row.querySelector(".user a").href = `https://github.com/${user.login}`;
+      row.querySelector(".user p").textContent = user.name;
+      row.querySelector(".user span").textContent = user.login;
       row.querySelector(".repositories").textContent = user.public_repos;
       row.querySelector(".followers").textContent = user.followers;
       row.querySelector(".action").onclick = () => {
@@ -104,7 +104,7 @@ export class FavoritesView extends Favorites {
     /*Criar conteúdo HTML na DOM*/ const tr = document.createElement("tr");
     /*Adicionando conteúdo HTML em uma variável*/ const content = `
     
-        <td class="users">
+        <td class="user">
             <img src="https://github.com/williangomesdev.png" alt="imagem github profile"/>
             <a href="https://github.com/williangomesdev" target="_blank">
                 <p>Willian Amaro Gomes</p>
