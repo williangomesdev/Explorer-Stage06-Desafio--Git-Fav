@@ -1,18 +1,4 @@
-//método estático
-export class GithubUser {
-  static search(username) {
-    const endpoint = `https://api.github.com/users/${username}`;
-    return fetch(endpoint)
-      .then((data) => data.json())
-      .then(({ login, name, public_repos, followers }) => ({
-        login,
-        name,
-        public_repos,
-        followers,
-      }));
-  }
-}
-
+import { GithubUser } from "./GithubUser.js";
 // Classe que vai conter a lógica dos dados
 // Como os dados serão estruturados
 
@@ -38,7 +24,6 @@ export class Favorites {
     try {
       /*Verificando se o usuário que está na pesquisa existe na tabela */
       const userExists = this.entries.find((entry) => entry.login === username);
-
       if (userExists) {
         throw new Error("Usuário já cadastrado!");
       }
@@ -99,6 +84,7 @@ export class FavoritesView extends Favorites {
         ".users img"
       ).src = `https://github.com/${user.login}.png`;
       row.querySelector(".users img").alt = `Imagem de ${user.name}`;
+      row.querySelector(".users a").href = `https://github.com/${user.login}`;
       row.querySelector(".users p").textContent = user.name;
       row.querySelector(".users span").textContent = user.login;
       row.querySelector(".repositories").textContent = user.public_repos;
