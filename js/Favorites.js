@@ -36,6 +36,13 @@ export class Favorites {
   /*buscar nome do usuário digitado no input*/
   async add(username) {
     try {
+      /*Verificando se o usuário que está na pesquisa existe na tabela */
+      const userExists = this.entries.find((entry) => entry.login === username);
+
+      if (userExists) {
+        throw new Error("Usuário já cadastrado!");
+      }
+
       const user = await GithubUser.search(username);
       if (user.login === undefined) {
         throw new Error("Usuário não encontrado!");
