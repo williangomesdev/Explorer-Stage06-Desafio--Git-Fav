@@ -21,19 +21,32 @@ export class Favorites {
     this.root = document.querySelector(root);
     this.tbody = this.root.querySelector("table tbody");
     this.load();
-
-    GithubUser.search("williangomesdev").then((user) => console.log(user));
   }
 
   load() {
     /*JSON.parse = modificar um JSON para um string em um objeto*/
     this.entries = JSON.parse(localStorage.getItem("@github-favorites:")) || [];
-    console.log(this.entries);
+  }
+
+  /*Salvar usuários no local Storage*/
+  save() {
+    localStorage.setItem("@github-favorites:", JSON.stringify(this.entries));
   }
 
   /*buscar nome do usuário digitado no input*/
   async add(username) {
-    const user = await GithubUser.search(username);
+    try {
+      const user = await GithubUser.search(username);
+      if (user.login === undefined) {
+        throw new Error("Usuário não encontrado!");
+      }
+
+      this.entries = [user, ...this.entries];
+      this.update();
+      this.save();
+    } catch (error) {
+      alert(error.message);
+    }
   }
 
   delete(user) {
@@ -42,6 +55,7 @@ export class Favorites {
     );
     this.entries = filteredEntries;
     this.update();
+    this.save();
   }
 }
 
@@ -61,8 +75,16 @@ export class FavoritesView extends Favorites {
     };
   }
 
+  emptyMessage() {
+    this.entries.length === 0
+      ? document.querySelector(".empty").classList.remove("sr-only")
+      : document.querySelector(".empty").classList.add("sr-only");
+  }
+
   update() {
     this.removeAllTr();
+
+    this.emptyMessage();
 
     this.entries.forEach((user) => {
       const row = this.createRow();
