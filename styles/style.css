@@ -16,6 +16,7 @@
   --fc-user-empty: hsla(calc(var(--hue) - 51), 4%, 32%, 1);
   --bg-input: hsla(calc(var(--hue) - 49), 65%, 7%, 1);
   --bg-button: hsla(calc(var(--hue) - 45), 91%, 25%, 1);
+  --bg-table: hsla(calc(var(--hue) - 49), 31%, 42%, 1);
   --bg-table-head: hsla(calc(var(--hue) - 45), 89%, 14%, 1);
   --bg-user-odd: hsla(calc(var(--hue) - 45), 61%, 6%, 0.5);
   --bg-user-even: hsla(calc(var(--hue) - 48), 65%, 7%, 1);
@@ -109,10 +110,65 @@ header .search button:hover svg path {
   fill: var(--bg-button);
 }
 
-.tableBox {
-  overflow: hidden;
+div.tableBox {
+  width: 100%;
+  border: 1px solid #4a808c;
+  border-radius: 1.2rem;
+  min-width: 85rem;
+  margin-top: 8.7rem;
+  overflow-y: hidden;
+}
+
+.tableContent {
+  display: flex;
+  flex-direction: column;
+  overflow-y: overlay;
+  max-height: 59rem;
+}
+
+.tableContent::-webkit-scrollbar {
+  width: 1.2em;
+}
+
+.tableContent::-webkit-scrollbar-button {
+  height: 11.2rem;
+}
+
+.tableContent::-webkit-scrollbar-thumb {
+  border-inline: 0.8rem solid transparent;
+  border-radius: 1rem !important;
+  background-clip: padding-box;
+  background-color: var(--bg-table);
+}
+
+
+/* div.tableBox {
+  overflow-y: overlay;
   border: var(--br-table);
   border-radius: 1.2rem;
+  min-width: 85rem;
+}
+
+.tableBox {
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 37.6rem;
+}
+
+.tableBox::-webkit-scrollbar {
+  width: 1.6em;
+}
+
+.tableBox::-webkit-scrollbar-button {
+  height:1rem;
+}
+
+.tableBox::-webkit-scrollbar-thumb {
+  border-inline: 0.8rem solid transparent;
+  border-radius: 1rem !important;
+  background-clip: padding-box;
+  background-color: var(--bg-table);
 }
 
 table {
@@ -128,6 +184,9 @@ table * {
 }
 
 table thead {
+  position: sticky;
+  left: 0;
+  top: 0;
   text-align: left;
 }
 
@@ -186,6 +245,7 @@ table tbody tr:nth-child(odd) {
 
 table tbody tr:nth-child(even) {
   border-top: var(--br-table);
+  border-bottom: var(--br-table);
   background: var(--bg-user-even);
 }
 
@@ -196,7 +256,13 @@ table tbody tr:last-child td:first-child {
 table tbody tr:last-child td:last-child {
   border-bottom-right-radius: 1.2rem;
 }
+ */
 
+ td.users img {
+  height: 5.6rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
 
 .emptyBox {
   background-color: var(--bg-user-empty);
