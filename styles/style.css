@@ -121,14 +121,13 @@ div.tableBox {
 table tbody.tableContent {
   display: flex;
   flex-direction: column;
-  max-height: 59rem;
+  max-height: 37.6rem;
   overflow-y: overlay;
 }
 
 table {
   display: flex;
   flex-direction: column;
-  align-items: space-between;
   border-collapse: collapse;
 }
 
@@ -137,6 +136,26 @@ table * {
   font-weight: 700;
   line-height: 160%;
   color: var(--fc-white);
+}
+
+table thead {
+  background: var(--bg-table-head);
+  text-align: left;
+}
+
+table thead th {
+  padding-block: 1.6rem;
+  padding-left: 4rem;
+}
+
+table thead th:first-child {
+  min-width: 50.4rem;
+}
+
+table thead th:nth-child(2),
+table thead th:nth-child(3) {
+  padding-left: 4rem;
+  min-width: 19.1rem;
 }
 
 table tbody tr {
@@ -164,7 +183,7 @@ table tbody.tableContent::-webkit-scrollbar-button {
 
 table tbody.tableContent::-webkit-scrollbar-thumb {
   border-inline: 0.8rem solid transparent;
-  border-radius: 1rem ;
+  border-radius: 1rem;
   background-clip: padding-box;
   background-color: var(--bg-table);
 }
@@ -180,7 +199,7 @@ table tbody td {
 
 table tbody tr td.user {
   height: 10.4rem;
-  min-width: 29rem;
+  min-width: 50.4rem;
   display: flex;
   align-items: center;
   justify-content: left;
