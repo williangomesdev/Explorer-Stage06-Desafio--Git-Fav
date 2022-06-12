@@ -76,7 +76,7 @@ header .search input {
   padding: 1.6rem;
   width: 46.2rem;
   border-radius: 0.5rem;
-  color: var(--fc-placeholder);
+  color: var(--fc-white);
   background: var(--bg-input);
   border: 2px solid var(--bg-black);
   line-height: 100%;
@@ -84,6 +84,11 @@ header .search input {
 
 header .search input:focus {
   border: var(--br-input-focus);
+}
+
+header .search input::placeholder {
+  color: var(--fc-placeholder);
+  font-size: 1.6rem;
 }
 
 header .search button {
@@ -173,14 +178,17 @@ table tbody.tableContent tr:nth-child(even) {
   background: var(--bg-user-even);
 }
 
+body::-webkit-scrollbar,
 table tbody.tableContent::-webkit-scrollbar {
   width: 1.2em;
 }
 
+body::-webkit-scrollbar-button,
 table tbody.tableContent::-webkit-scrollbar-button {
   height: 1rem;
 }
 
+body::-webkit-scrollbar-thumb,
 table tbody.tableContent::-webkit-scrollbar-thumb {
   border-inline: 0.8rem solid transparent;
   border-radius: 1rem;
