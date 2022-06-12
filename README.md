@@ -1,5 +1,5 @@
 <h1 align="center">
-	Explorer-Stage06-Desafio- Git Fav
+	Explorer-Stage06-Desafio-GITFAV
 </h1>
 
 <h3 align="center">
